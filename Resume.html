@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>성선규 이력서</title>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet"/>
+    <style>
+        :root {
+            --main-color: #4EA1F3; /* 블루 포인트 */
+            --second-color: #FFB86C; /* 보조 강조 */
+            --bg-color: #1E1E1E; /* 전체 배경 */
+            --card-bg: #2A2A2A; /* 카드 / 섹션 배경 */
+            --text-color: #E0E0E0; /* 기본 텍스트 */
+            --subtext-color: #999999; /* 부가 정보 */
+            --border-color: #3C3C3C;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 24px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Pretendard', sans-serif;
+        }
+
+        a {
+            color: var(--main-color);
+            text-decoration: none;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background-color: var(--card-bg);
+            padding: 32px 24px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .sidebar h1 {
+            font-size: 1.8em;
+            color: var(--main-color);
+        }
+
+        .sidebar p, .sidebar a {
+            color: var(--subtext-color);
+            font-size: 0.95em;
+        }
+
+        .main {
+            flex-grow: 1;
+            padding: 48px;
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        section h2 {
+            color: var(--main-color);
+            font-size: 1.4em;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            color: var(--second-color);
+            font-size: 1.1em;
+            margin-top: 0;
+        }
+
+        .card .subinfo {
+            color: var(--subtext-color);
+            font-size: 0.9em;
+        }
+
+        ul {
+            padding-left: 1.2em;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        code {
+            background-color: #333;
+            color: #FFD866;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.92em;
+        }
+    </style>
+
+
+    <!-- Mermaid 다이어그램 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: "dark",
+            themeVariables: {
+                background: "#1E1E1E",
+                primaryColor: "#2A2A2A",
+                primaryTextColor: "#E0E0E0",
+                lineColor: "#4EA1F3",
+                nodeBorder: "#4EA1F3",
+                textColor: "#E0E0E0",
+                fontSize: "16px",
+                fontFamily: "'Pretendard', sans-serif"
+            },
+            flowchart: {
+                curve: "basis",
+                nodeSpacing: 70,
+                rankSpacing: 60,
+            }
+        });
+    </script>
+
+</head>
+<body>
+<div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h1>성선규</h1>
+        <p>백엔드 개발자</p>
+        <hr style="border: none; border-top: 1px solid #333; margin: 16px 0;">
+        <p>📍 서울 동작구</p>
+        <p>📞 010-8694-1658</p>
+        <p>📧 <a href="mailto:sesungg@gmail.com">sesungg@gmail.com</a></p>
+        <p>🔗 <a href="https://github.com/sesungg" target="_blank">github.com/sesungg</a></p>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+        <!-- Intro -->
+        <section>
+            <h2>About Me</h2>
+            <p>전자상거래 플랫폼에서 3년차 백엔드 개발자로 근무 중입니다. <strong>Spring Boot</strong>, <strong>JPA</strong>,
+                <strong>Thymeleaf</strong> 기반 시스템 구축과 유지보수 경험이 풍부합니다. 효율성과 품질을 중시하며, 문제 해결과 팀워크 중심의 개발을 지향합니다.</p>
+        </section>
+
+        <!-- Experience -->
+        <section>
+            <h2>Experience</h2>
+
+            <div class="card">
+                <h3>아이템베이 (2024.10 ~ 재직 중)</h3>
+                <p class="subinfo">Spring Framework, MSSQL</p>
+                <ul>
+                    <li>회원 이벤트 시스템 및 마일리지 처리</li>
+                    <li>마이페이지 API 구성 및 유지보수</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>하빅스 프로젝트 (2025.01 ~ 2025.06)</h3>
+                <p class="subinfo">Spring Boot 2.7, JPA, OpenFeign</p>
+                <ul>
+                    <li>대량 알림 발송 시스템 (SMS/이메일) 구현</li>
+                    <li>마이페이지 및 마일리지 기능 설계/개발</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>포뎁스 (2023.01 ~ 2024.07)</h3>
+                <ul>
+                    <li>가명정보지원플랫폼: egov, PostgreSQL, Thymeleaf</li>
+                    <li>사내 시스템 고도화: Spring Boot 3, Vue.js3</li>
+                    <li>대표 홈페이지 고도화: MVC 개선, Thymeleaf 적용</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section>
+            <h2>Troubleshooting</h2>
+            <div class="card">
+                <h3>Spring 트랜잭션에서 데이터 조회 문제</h3>
+                <p class="subinfo">REQUIRES_NEW 트랜잭션에서 삽입한 데이터가 조회되지 않는 문제 해결</p>
+
+                <p><strong>문제 상황</strong><br/>
+                    Spring 기반 애플리케이션에서 <code>@Transactional(readOnly = false)</code>가 적용된 A 서비스의 a 메서드 내부에서,<br/> <code>@Transactional(propagation
+                        = Propagation.REQUIRES_NEW)</code>가 적용된 B 서비스의 b 메서드를 호출해 테이블에 데이터를 삽입했습니다. <br/>
+                    하지만 b 메서드 실행 직후, a 메서드에서 해당 테이블을 조회했을 때 삽입된 데이터가 반영되지 않는 문제가 발생했습니다.
+                </p>
+
+                <p><strong>문제 원인 분석</strong></p>
+                <ul>
+                    <li><strong>트랜잭션 전파</strong>: b 메서드는 REQUIRES_NEW 설정으로 인해 <strong>기존 트랜잭션(a 메서드)과는 별도의 새로운
+                        트랜잭션</strong>에서 실행되며, <strong>독립적으로 커밋</strong>됩니다.
+                    </li>
+                    <li><strong>데이터베이스 격리 수준</strong>: 데이터베이스의 격리 수준이 <code>REPEATABLE READ</code>로 설정되어 있어, <strong>a
+                        메서드 트랜잭션이 시작된 시점의 스냅샷</strong>을 기준으로 데이터를 조회하게 됩니다.<br/>
+                        이로 인해 <strong>b 메서드에서 커밋된 새로운 데이터는 a 메서드의 트랜잭션에서는 조회되지 않습니다.</strong></li>
+                </ul>
+                <br/>
+                <h3>트랜잭션 흐름 시각화</h2>
+                    <div class="card">
+                <pre class="mermaid">
+                    graph LR
+                        A["A Service\n@Transactional(readOnly=false)"] -->|1. 호출| B["B Service\n@Transactional(propagation=REQUIRES_NEW)"]
+                        B -->|2. INSERT| C[테이블]
+                        A -->|3. SELECT| C
+                        C -->|조회 실패| D["격리 수준 문제"]
+                        D --> E["Isolation.READ_COMMITTED 설정"]
+                        E --> F["성공적으로 데이터 조회됨"]
+                </pre>
+                    </div>
+
+                    <p><strong>해결 방법</strong></p>
+                    <ul>
+                        <li>
+                            a 메서드의 트랜잭션에 <code>@Transactional(isolation = Isolation.READ_COMMITTED)</code>를 명시적으로 설정하여,
+                            <strong>다른 트랜잭션에서 커밋된 데이터를 즉시 조회할 수 있도록 조정</strong>했습니다.
+                        </li>
+                    </ul>
+
+                    <p><strong>결과</strong><br/>
+                        트랜잭션 격리 수준을 <code>READ_COMMITTED</code>로 설정한 이후, a 메서드에서도 b 메서드에서 삽입한 데이터를 정상적으로 조회할 수 있게 되었습니다.
+                        <br/>
+                        문제의 원인을 <strong>트랜잭션 전파와 격리 수준에 집중해 정확히 분석</strong>했으며, 불필요한 캐시 조작이나 코드 변경 없이 효율적으로 해결할 수 있었습니다.
+                    </p>
+
+                    <p><strong>배운 점</strong></p>
+                    <ul>
+                        <li>Spring 트랜잭션의 <strong>전파(Propagation)</strong>와 데이터베이스 <strong>격리 수준(Isolation)</strong>이
+                            실질적으로 애플리케이션의 <strong>데이터 정합성</strong>과 직결된다는 점을 경험적으로 이해했습니다.
+                        </li>
+                        <li>문제가 발생했을 때 단순한 코드 수정보다는 <strong>트랜잭션 흐름과 DB 설정</strong>을 먼저 분석하는 것이 중요하다는 교훈을 얻었습니다.</li>
+                        <li>추후 유사한 트랜잭션 문제를 예방하기 위해 기본 격리 수준을 명확히 인지하고, 서비스 설계 시 트랜잭션 전파와 조회 타이밍을 신중하게 고려할 수 있게 되었습니다.
+                        </li>
+                    </ul>
+            </div>
+        </section>
+
+
+        <!-- Skills -->
+        <section>
+            <h2>Skills</h2>
+            <div class="card">
+                <p><strong>Backend</strong>: Java, Spring Boot, JPA, MyBatis, QueryDSL</p>
+                <p><strong>Frontend</strong>: JavaScript, Thymeleaf, JSP, Vue.js</p>
+                <p><strong>Infra</strong>: AWS, Linux, GCP</p>
+                <p><strong>Database</strong>: MySQL, PostgreSQL, MariaDB</p>
+                <p><strong>Tools</strong>: Git, Jenkins, 전자정부프레임워크</p>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>
