@@ -106,12 +106,12 @@
         }
 
         code {
-            background-color: #F3F4F6;
-            color: #DC2626;
+            background-color: #e7e7e7;
+            color: #ff3636;
             padding: 2px 6px;
             border-radius: 4px;
             font-family: monospace;
-            font-size: 0.92em;
+            font-size: 1em;
             font-weight: 600;
         }
 
@@ -119,6 +119,43 @@
             color: var(--subtext-color);
             text-decoration: none;
             font-weight: normal;
+        }
+
+        @media (max-width: 768px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 20px 16px;
+            }
+
+            .main {
+                padding: 24px 16px;
+            }
+
+            section h2 {
+                font-size: 1.2em;
+            }
+
+            .card {
+                padding: 16px;
+            }
+
+            .sidebar h1 {
+                font-size: 1.5em;
+            }
+
+            .sidebar p, .sidebar a {
+                font-size: 0.9em;
+            }
+
+            body {
+                padding: 24px 16px;
+            }
         }
 
     </style>
@@ -179,10 +216,16 @@
                     아이템베이 유지보수 (2024.10 ~ 재직 중)
                     <a href="https://itembay.com" class="muted-link" target="_blank">🔗</a>
                 </h3>
-                <p class="subinfo">JAVA8, Spring Framework (Maven), MSSQL(Stored Procedure), JavaScript, JSP, Git</p>
+                <p class="subinfo">Java 8, Spring Framework (Maven), MSSQL(Stored Procedure), JavaScript, JSP, Git</p>
                 <ul>
-                    <li>회원 이벤트 시스템 및 마일리지 처리</li>
-                    <li>마이페이지 API 구성 및 유지보수</li>
+                    <li><strong>프로모션 이벤트 시스템 개발</strong>: 사용자 대상 이벤트 등록 및 관리 기능 구현</li>
+                    <li><strong>이벤트 참여자 조회 API 구축</strong>: 운영자용 참여자 데이터 조회 API 설계 및 개발</li>
+                    <li><strong>쿠폰 기능 구현</strong>: 쿠폰 조회, 발급, 유효기간 검증 로직 처리</li>
+                    <li><strong>마일리지 시스템 유지보수</strong>: 유효기간, 구매전용, 출금 가능 마일리지 구분 처리 및 사용자 지급</li>
+                    <li><strong>마이페이지 기능 개선</strong>: 등록 물품 통합 조회 API 설계 및 유지보수</li>
+                    <li><strong>경쟁사 등록 게임 스크래핑 자동화</strong>: Python과 Selenium을 활용해 주요 경쟁사 웹사이트의 등록 게임 정보를 주기적으로 수집 및 DB
+                        자동 반영
+                    </li>
                 </ul>
             </div>
 
@@ -191,7 +234,7 @@
                     아이템베이 - 하빅스 프로젝트 (2025.01 ~ 2025.06)
                     <a href="https://hobbix.co.kr" class="muted-link" target="_blank">🔗</a>
                 </h3>
-                <p class="subinfo">JAVA17, Spring Boot 2.7 (Gradle), JPA, MySQL, QueryDSL, Thymeleaf 3, Spring Cloud
+                <p class="subinfo">Java 17, Spring Boot 2.7 (Gradle), JPA, MySQL, QueryDSL, Thymeleaf 3, Spring Cloud
                     OpenFeign, Spring Batch, Spring AMQP, JavaScript, Git</p>
                 <ul>
                     <li><strong>알림 시스템</strong>: Spring Cloud OpenFeign으로 NHN Cloud API 연동, Spring Batch 및 스케쥴러 기반 대량
@@ -200,9 +243,26 @@
                     <li><strong>마이페이지</strong>: 물품 조회/관리, 결제 대기, 흥정 수락/거절 기능 구현 (JPA + QueryDSL + Thymeleaf 기반)</li>
                     <li><strong>마일리지 시스템</strong>: 유효기간, 구매 전용, 출금 가능 마일리지 설계 및 트랜잭션 처리</li>
                     <li><strong>금칙어 시스템</strong>: 아호코라식 기반 통합 금칙어 필터링 시스템 구현
-                        (<a href="https://techblog.woowahan.com/15764" class="muted-link" target="_blank">우아한형제들 참고</a>,
-                        <a href="https://github.com/sesungg/banword" class="muted-link" target="_blank">GitHub 소스</a>)
+                        (<a href="https://techblog.woowahan.com/15764" class="muted-link" target="_blank">우아한형제들 참고
+                            🔗</a>,
+                        <a href="https://github.com/sesungg/banword" class="muted-link" target="_blank">GitHub 소스 🔗</a>)
                     </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>
+                    사이드 프로젝트 - 케이클리 (2025.06 ~ 진행 중)
+                </h3>
+                <p class="subinfo">
+                    Java 17, Spring Boot 3.4, JPA, PostgreSQL 17, Gradle, Swagger, Spring Security, AWS (EC2, RDS,
+                    ElastiCache, SNS), Thymeleaf, Flutter, Dart
+                </p>
+                <ul>
+                    <li><strong>PM 및 백엔드 개발자</strong>로 참여하여 전체 시스템 기획과 개발 주도</li>
+                    <li><strong>API 설계 및 구현</strong>: 주문, 업체 등록/관리 등 핵심 API 설계 및 백엔드 구현</li>
+                    <li><strong>DB 및 인프라 설계</strong>: PostgreSQL 기반 모델링 및 AWS EC2, RDS, ElastiCache 인프라 아키텍처 설계</li>
+                    <li><strong>팀 빌딩 및 일정 관리</strong>: 팀원 모집부터 일정 및 우선순위 조율까지 프로젝트 전반 관리</li>
                 </ul>
             </div>
 
@@ -256,11 +316,26 @@
                 <h3>Spring 트랜잭션에서 데이터 조회 문제</h3>
                 <p class="subinfo">REQUIRES_NEW 트랜잭션에서 삽입한 데이터가 조회되지 않는 문제 해결</p>
 
-                <p><strong>문제 상황</strong><br/>
-                    Spring 기반 애플리케이션에서 <code>@Transactional(readOnly = false)</code>가 적용된 A 서비스의 a 메서드 내부에서,<br/> <code>@Transactional(propagation
-                        = Propagation.REQUIRES_NEW)</code>가 적용된 B 서비스의 b 메서드를 호출해 테이블에 데이터를 삽입했습니다. <br/>
+                <p>
+                    <strong>문제 상황</strong><br/>
+                    Spring 기반 애플리케이션에서 <code>@Transactional(readOnly = false)</code>가 적용된 A 서비스의 a 메서드 내부에서,<br/>
+                    <code>@Transactional(propagation = Propagation.REQUIRES_NEW)</code>가 적용된 B 서비스의 b 메서드를 호출해 테이블에 데이터를
+                    삽입했습니다. <br/>
                     하지만 b 메서드 실행 직후, a 메서드에서 해당 테이블을 조회했을 때 삽입된 데이터가 반영되지 않는 문제가 발생했습니다.
                 </p>
+
+                <h3>트랜잭션 흐름 시각화</h3>
+                <div class="card">
+                    <pre class="mermaid">
+                        graph LR
+                            A["A Service\n@Transactional(readOnly=false)"] -->|1. 호출| B["B Service\n@Transactional(propagation=REQUIRES_NEW)"]
+                            B -->|2. INSERT| C[테이블]
+                            A -->|3. SELECT| C
+                            C -->|조회 실패| D["격리 수준 문제"]
+                            D --> E["Isolation.READ_COMMITTED 설정"]
+                            E --> F["성공적으로 데이터 조회됨"]
+                    </pre>
+                </div>
 
                 <p><strong>문제 원인 분석</strong></p>
                 <ul>
@@ -272,42 +347,99 @@
                         이로 인해 <strong>b 메서드에서 커밋된 새로운 데이터는 a 메서드의 트랜잭션에서는 조회되지 않습니다.</strong></li>
                 </ul>
                 <br/>
-                <h3>트랜잭션 흐름 시각화</h2>
-                    <div class="card">
-                <pre class="mermaid">
-                    graph LR
-                        A["A Service\n@Transactional(readOnly=false)"] -->|1. 호출| B["B Service\n@Transactional(propagation=REQUIRES_NEW)"]
-                        B -->|2. INSERT| C[테이블]
-                        A -->|3. SELECT| C
-                        C -->|조회 실패| D["격리 수준 문제"]
-                        D --> E["Isolation.READ_COMMITTED 설정"]
-                        E --> F["성공적으로 데이터 조회됨"]
-                </pre>
-                    </div>
 
-                    <p><strong>해결 방법</strong></p>
-                    <ul>
-                        <li>
-                            a 메서드의 트랜잭션에 <code>@Transactional(isolation = Isolation.READ_COMMITTED)</code>를 명시적으로 설정하여,
-                            <strong>다른 트랜잭션에서 커밋된 데이터를 즉시 조회할 수 있도록 조정</strong>했습니다.
-                        </li>
-                    </ul>
+                <p><strong>해결 방법</strong></p>
+                <ul>
+                    <li>
+                        a 메서드의 트랜잭션에 <code>@Transactional(isolation = Isolation.READ_COMMITTED)</code>를 명시적으로 설정하여,
+                        <strong>다른 트랜잭션에서 커밋된 데이터를 즉시 조회할 수 있도록 조정</strong>했습니다.
+                    </li>
+                </ul>
 
-                    <p><strong>결과</strong><br/>
-                        트랜잭션 격리 수준을 <code>READ_COMMITTED</code>로 설정한 이후, a 메서드에서도 b 메서드에서 삽입한 데이터를 정상적으로 조회할 수 있게 되었습니다.
-                        <br/>
-                        문제의 원인을 <strong>트랜잭션 전파와 격리 수준에 집중해 정확히 분석</strong>했으며, 불필요한 캐시 조작이나 코드 변경 없이 효율적으로 해결할 수 있었습니다.
-                    </p>
+                <p><strong>결과</strong><br/>
+                    트랜잭션 격리 수준을 <code>READ_COMMITTED</code>로 설정한 이후, a 메서드에서도 b 메서드에서 삽입한 데이터를 정상적으로 조회할 수 있게 되었습니다.
+                    <br/>
+                    문제의 원인을 <strong>트랜잭션 전파와 격리 수준에 집중해 정확히 분석</strong>했으며, 불필요한 캐시 조작이나 코드 변경 없이 효율적으로 해결할 수 있었습니다.
+                </p>
 
-                    <p><strong>배운 점</strong></p>
-                    <ul>
-                        <li>Spring 트랜잭션의 <strong>전파(Propagation)</strong>와 데이터베이스 <strong>격리 수준(Isolation)</strong>이
-                            실질적으로 애플리케이션의 <strong>데이터 정합성</strong>과 직결된다는 점을 경험적으로 이해했습니다.
-                        </li>
-                        <li>문제가 발생했을 때 단순한 코드 수정보다는 <strong>트랜잭션 흐름과 DB 설정</strong>을 먼저 분석하는 것이 중요하다는 교훈을 얻었습니다.</li>
-                        <li>추후 유사한 트랜잭션 문제를 예방하기 위해 기본 격리 수준을 명확히 인지하고, 서비스 설계 시 트랜잭션 전파와 조회 타이밍을 신중하게 고려할 수 있게 되었습니다.
-                        </li>
-                    </ul>
+                <p><strong>배운 점</strong></p>
+                <ul>
+                    <li>Spring 트랜잭션의 <strong>전파(Propagation)</strong>와 데이터베이스 <strong>격리 수준(Isolation)</strong>이
+                        실질적으로 애플리케이션의 <strong>데이터 정합성</strong>과 직결된다는 점을 경험적으로 이해했습니다.
+                    </li>
+                    <li>문제가 발생했을 때 단순한 코드 수정보다는 <strong>트랜잭션 흐름과 DB 설정</strong>을 먼저 분석하는 것이 중요하다는 교훈을 얻었습니다.</li>
+                    <li>추후 유사한 트랜잭션 문제를 예방하기 위해 기본 격리 수준을 명확히 인지하고, 서비스 설계 시 트랜잭션 전파와 조회 타이밍을 신중하게 고려할 수 있게 되었습니다.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Architecture & Pattern</h2>
+            <div class="card">
+                <h3>다형성과 전략 패턴을 이용한 메시지 발송 시스템 설계</h3>
+                <p class="subinfo">NHN Cloud 메시지 API (SMS, LMS, Email, 알림톡) 대응</p>
+                <ul>
+                    <li><strong>배경</strong>: NHN Cloud의 메시지 API는 유형별로 명세가 달라 중복된 조건 분기 코드가 많았음</li>
+                    <li><strong>해결 전략</strong>: 전략 패턴(Strategy Pattern)을 적용해 메시지 발송 로직을 추상화</li>
+                    <li><strong>구성 클래스</strong>:
+                        <ul>
+                            <li><code>SendStrategy</code>: 메시지 전송 전략의 인터페이스</li>
+                            <li><code>SMSSendStrategy</code>: SMS 전송 구현</li>
+                            <li><code>LMSSendStrategy</code>: LMS 전송 구현</li>
+                            <li><code>EmailSendStrategy</code>: 이메일 전송 구현</li>
+                            <li><code>SendContext</code>: 전략을 주입받아 실행하는 컨텍스트 클래스</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>확장성 고려</strong>: 향후 <code>알림톡</code> 추가를 위해 및 새로운 업체로 변경을 위해 <code>SendStrategy</code>를 상속하는 새 전략 클래스만 구현하면 됨
+                    </li>
+                </ul>
+
+                <div class="card">
+                    <pre class="mermaid">
+                        classDiagram
+                            class SendStrategy {
+                                &lt;&lt;interface&gt;&gt;
+                                +send(Message): void
+                            }
+
+                            class SendContext {
+                                -strategy: SendStrategy
+                                +setStrategy(strategy: SendStrategy): void
+                                +execute(message: Message): void
+                            }
+
+                            class SMSSendStrategy {
+                                +send(message: Message): void
+                            }
+
+                            class LMSSendStrategy {
+                                +send(message: Message): void
+                            }
+
+                            class EmailSendStrategy {
+                                +send(message: Message): void
+                            }
+
+                            class AlimtalkSendStrategy {
+                                +send(message: Message): void
+                            }
+
+                            SendStrategy <|.. SMSSendStrategy
+                            SendStrategy <|.. LMSSendStrategy
+                            SendStrategy <|.. EmailSendStrategy
+                            SendStrategy <|.. AlimtalkSendStrategy
+                            SendContext --> SendStrategy
+                    </pre>
+                </div>
+
+                <p><strong>성과</strong></p>
+                <ul>
+                    <li>코드 복잡도 감소 및 책임 분리로 유지보수성 향상</li>
+                    <li>알림톡 등 신규 채널 추가 시 기존 코드 변경 없이 클래스만 확장하면 되는 구조 확보</li>
+                    <li>전략 패턴을 통한 유연한 메시지 발송 시스템 구현 경험 축적</li>
+                </ul>
             </div>
         </section>
 
