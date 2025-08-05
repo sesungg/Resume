@@ -115,6 +115,15 @@
             font-weight: 600;
         }
 
+        pre[class*="language-"] {
+            background: #f9fafb;
+            border-radius: 6px;
+            padding: 16px;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
         .muted-link {
             color: var(--subtext-color);
             text-decoration: none;
@@ -183,6 +192,12 @@
             }
         });
     </script>
+    <!-- Prism.js CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css" rel="stylesheet" />
+
+    <!-- Prism.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-java.min.js"></script>
 
 </head>
 <body>
@@ -370,6 +385,54 @@
                     <li>문제가 발생했을 때 단순한 코드 수정보다는 <strong>트랜잭션 흐름과 DB 설정</strong>을 먼저 분석하는 것이 중요하다는 교훈을 얻었습니다.</li>
                     <li>추후 유사한 트랜잭션 문제를 예방하기 위해 기본 격리 수준을 명확히 인지하고, 서비스 설계 시 트랜잭션 전파와 조회 타이밍을 신중하게 고려할 수 있게 되었습니다.
                     </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>QueryDSL 동적 조건 처리 중 IllegalArgumentException 방지</h3>
+                <p class="subinfo">검색 조건이 null일 경우 쿼리 빌더에서 예외 발생 → null-safe 처리로 해결</p>
+
+                <p><strong>문제 상황</strong><br/>
+                    관리자 페이지 마일리지 내역 검색에서 여러 조건을 입력받아 QueryDSL로 조건 검색을 구현하던 중,<br/>
+                    일부 조건이 <code>null</code>일 경우 <code>BooleanExpression</code> 내부에서 <code>IllegalArgumentException</code>이 발생하는 문제가 있었습니다.
+                </p>
+
+                <p><strong>해결 방법</strong></p>
+                <ul>
+                    <li>
+                        관련 문제를 인프런 질문
+                        <a class="muted-link" href="https://www.inflearn.com/community/questions/94056" target="_blank">[참고 링크 🔗]</a>를 통해 확인하고,<br/>
+                        <code>BooleanBuilder</code>를 안전하게 생성할 수 있도록 <code>nullSafeBuilder()</code> 헬퍼 메서드(<strong>BooleanBuilder + 람다 기반 null-safe 조건 메서드</strong>)를 도입해 해결
+                    </li>
+                </ul>
+
+                <pre><code class="language-java">
+private BooleanBuilder ageEq(Integer age) {
+    return nullSafeBuilder(() -> member.age.eq(age));
+}
+
+private BooleanBuilder roleEq(String roleName) {
+    return nullSafeBuilder(() -> member.roleName.eq(roleName));
+}
+
+public static BooleanBuilder nullSafeBuilder(Supplier&lt;BooleanExpression&gt; f) {
+    try {
+        return new BooleanBuilder(f.get());
+    } catch (IllegalArgumentException e) {
+        return new BooleanBuilder(); // 안전하게 무시
+    }
+}
+        </code></pre>
+
+                <p><strong>결과</strong><br/>
+                    null 입력이 있어도 쿼리 빌드 과정에서 예외가 발생하지 않으며, 모든 조건이 안전하게 동작하도록 개선되었습니다.<br/>
+                    코드의 반복도 줄이고 동적 조건을 더 유연하게 처리할 수 있게 되었습니다.
+                </p>
+
+                <p><strong>배운 점</strong></p>
+                <ul>
+                    <li>QueryDSL에서 null-safe 조건 처리를 위한 헬퍼 메서드가 <strong>코드 안정성 및 유지보수성에 매우 효과적</strong>임을 경험</li>
+                    <li>BooleanBuilder, Supplier, 람다를 활용한 <strong>함수형 null 처리 패턴</strong>의 장점을 실감</li>
                 </ul>
             </div>
         </section>
