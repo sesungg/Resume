@@ -325,6 +325,34 @@
 
         </section>
 
+        <!-- Personal Project -->
+        <section>
+            <h2>Personal Project</h2>
+
+            <div class="card">
+                <h3>
+                    Banword - 통합 금칙어 시스템 (2024.11 ~ 2024.12)
+                    <a href="https://github.com/sesungg/banword" class="muted-link" target="_blank">🔗</a>
+                </h3>
+                <p class="subinfo">Java 11, Spring Boot, Aho-Corasick</p>
+                <ul>
+                    <li><strong>배경</strong>: 온라인 서비스에서 욕설, 비속어, 금칙어를 효율적으로 필터링하기 위한 시스템 필요</li>
+                    <li><strong>구현</strong>:
+                        <ul>
+                            <li>Aho-Corasick 기반 다중 문자열 매칭 알고리즘 적용 → 대량의 금칙어 탐지 성능 최적화</li>
+                            <li>금칙어/허용어 리스트를 <strong>인메모리 / Redis 캐시</strong> 방식으로 선택적 관리</li>
+                        </ul>
+                    </li>
+                    <li><strong>의의</strong>:
+                        <ul>
+                            <li>MSA 구조에서도 독립적으로 적용 가능한 금칙어 모듈 구축</li>
+                            <li>외부 기술 블로그(우아한형제들 사례 등) 참고 → 자체 구현 및 최적화 경험</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <!-- Troubleshooting -->
         <section>
             <h2>Troubleshooting</h2>
