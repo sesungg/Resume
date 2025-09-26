@@ -533,6 +533,41 @@ public static BooleanBuilder nullSafeBuilder(Supplier&lt;BooleanExpression&gt; f
                     <li>전략 패턴을 통한 유연한 메시지 발송 시스템 구현 경험 축적</li>
                 </ul>
             </div>
+
+
+            <div class="card">
+                <h3>검색어 추천 파이프라인 구축</h3>
+                <p class="subinfo">RabbitMQ, Spring Batch, Elasticsearch (edge_ngram, nori)</p>
+
+                <p>
+                    검색어 추천 시스템을 <strong>실시간(Online)</strong>과 <strong>오프라인(Offline)</strong> 경로로 분리하여 설계했습니다.<br/>
+                    실시간 경로에서는 사용자의 입력에 즉시 응답할 수 있도록 Elasticsearch 기반 자동완성을 제공하였고,
+                    오프라인 경로에서는 RabbitMQ와 배치 처리를 통해 검색 로그를 정제·집계하여 추천 품질을 지속적으로 개선했습니다.
+                </p>
+
+                <div class="card">
+                    <pre class="mermaid">
+                        graph LR
+                            A[사용자 입력] --> B[Elasticsearch 자동완성 조회]
+                            B --> C[상위 후보 점수화 후 응답]
+
+                            %% 검색 실행은 별도 노드로 빼서 연결
+                            A --> D[검색 실행]
+                            D --> E[RabbitMQ 로그 발행]
+                            E --> F[Consumer → DB 적재]
+                            F --> G[배치/스트리밍 잡]
+                            G --> H[검색어 집계 및 동의어 처리]
+                            H --> I[신규 ES 인덱스 구축]
+                            I --> J[무중단 롤오버 - alias swap]
+                    </pre>
+                </div>
+
+                <ul>
+                    <li><strong>실시간 경로</strong>: Elasticsearch(edge_ngram, nori) 기반 후보 조회 → 상위 N개 추천</li>
+                    <li><strong>오프라인 경로</strong>: RabbitMQ로 검색 로그 수집 → DB 적재 → 배치 처리(빈도, 최근성, CTR, 동의어 합산) → 새로운 인덱스 생성 및 롤오버 적용</li>
+                    <li><strong>성과</strong>: 실시간 응답 성능 확보와 함께, 주기적인 로그 기반 후처리로 추천 품질 향상 및 무중단 배포 구조 확립</li>
+                </ul>
+            </div>
         </section>
 
 
